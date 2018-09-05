@@ -20,43 +20,43 @@ namespace nss.Data
                 `InstructorId` 	INTEGER NOT NULL,
                 FOREIGN KEY(`ExerciseId`) REFERENCES `Exercise`(`Id`),
                 FOREIGN KEY(`StudentId`) REFERENCES `Student`(`Id`),
-                FOREIGN KEY(`InstructorId`) REFERENCES `Instrutor`(`Id`)
+                FOREIGN KEY(`InstructorId`) REFERENCES `Instructor`(`Id`)
             )");
         }
         public static void Seed(SqliteConnection db)
         {
             db.Execute($@"INSERT INTO StudentExercise
                 SELECT null, e.Id, s.Id, i.Id
-                FROM Student s, Exercise e, Instructor i
+                FROM  Exercise e, Student s, Instructor i
                 WHERE e.Name = 'Overly Excited'
-                AND s.SlackHandle = '@ryan.tanay'
+                AND s.SlackHandle = '@one'
                 AND i.SlackHandle = '@coach'
             ");
 
 
             db.Execute($@"INSERT INTO StudentExercise
                 SELECT null, e.Id, s.Id, i.Id
-                FROM Student s, Exercise e, Instructor i
+                FROM  Exercise e, Student s, Instructor i
                 WHERE e.Name = 'Overly Excited'
-                AND s.SlackHandle = '@katerebekah'
+                AND s.SlackHandle = '@two'
                 AND i.SlackHandle = '@coach'
             ");
 
 
             db.Execute($@"INSERT INTO StudentExercise
                 SELECT null, e.Id, s.Id, i.Id
-                FROM Student s, Exercise e, Instructor i
+                FROM  Exercise e, Student s, Instructor i
                 WHERE e.Name = 'ChickenMonkey'
-                AND s.SlackHandle = '@juanrod'
+                AND s.SlackHandle = '@three'
                 AND i.SlackHandle = '@joes'
             ");
 
 
             db.Execute($@"INSERT INTO StudentExercise
                 SELECT null, e.Id, s.Id, i.Id
-                FROM Student s, Exercise e, Instructor i
+                FROM  Exercise e, Student s, Instructor i
                 WHERE e.Name = 'Boy Bands & Vegetables'
-                AND s.SlackHandle = '@katerebekah'
+                AND s.SlackHandle = '@four'
                 AND i.SlackHandle = '@jisie'
             ");
         }
